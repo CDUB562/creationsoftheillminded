@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creations of the Ill Minded</title>
+<meta name="description" content="The portfolio of ventures, products, and investments built by The Ill Minded.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --surface: #131316;
+    --surface-hover: #1a1a1f;
+    --border: #26262c;
+    --border-hover: #3a3a42;
+    --ink: #f0f0f2;
+    --muted: #8a8a94;
+    --muted-dim: #5a5a64;
+    --accent: #c8c8d0;
+    --accent-dim: #6a6a74;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-w: 1200px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* === NAV === */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 16px 24px;
+    background: rgba(10, 10, 11, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+  nav.scrolled { border-bottom-color: var(--border); }
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-brand {
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-brand .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ink);
+    display: inline-block;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .nav-links a { transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 24px 80px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    max-width: 900px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--muted);
+  }
+  .hero p {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 560px;
+    margin-top: 24px;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 56px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat-num {
+    font-size: 32px;
+    font-weight: 600;
+    font-feature-settings: 'tnum';
+    letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted-dim);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* === SECTIONS === */
+  section {
+    padding: 80px 24px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-heading {
+    font-family: 'Instrument Serif', serif;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    margin-bottom: 48px;
+  }
+
+  /* === VENTURE GRID === */
+  .ventures {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .venture-card {
+    background: var(--surface);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .venture-card:hover { background: var(--surface-hover); }
+  .venture-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .venture-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-sm);
+    object-fit: contain;
+    background: #fff;
+    flex-shrink: 0;
+    padding: 8px;
+  }
+  .venture-status {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted-dim);
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .venture-status.active { color: #7ddc7d; border-color: rgba(125, 220, 125, 0.2); }
+  .venture-status.attention { color: #f5c56d; border-color: rgba(245, 197, 109, 0.2); }
+  .venture-status.live { color: #7ddc7d; border-color: rgba(125, 220, 125, 0.2); }
+  .venture-status.paused { color: var(--muted-dim); }
+  .venture-status.dormant { color: var(--muted-dim); }
+  .venture-status.stalled { color: #f56d6d; border-color: rgba(245, 109, 109, 0.2); }
+  .venture-status.undefined { color: var(--muted-dim); }
+  .venture-name {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .venture-category {
+    font-size: 13px;
+    color: var(--muted-dim);
+    letter-spacing: 0.02em;
+    margin-top: -8px;
+  }
+  .venture-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    flex-grow: 1;
+  }
+  .venture-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--muted-dim);
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .venture-meta span { display: flex; align-items: center; gap: 4px; }
+
+  /* === ABOUT === */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .about-text p:first-child { color: var(--ink); font-size: 19px; }
+
+  /* === FOOTER === */
+  footer {
+    padding: 64px 24px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .footer-brand {
+    font-family: 'Instrument Serif', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--muted);
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .footer-links a:hover { color: var(--ink); }
+  .footer-copy {
+    font-size: 13px;
+    color: var(--muted-dim);
+    margin-top: 32px;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .hero-stats { gap: 32px; }
+    .ventures { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    section { padding: 60px 20px; }
+    .section-heading { font-size: 32px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><span class="dot"></span> Creations of the Ill Minded</div>
+    <div class="nav-links">
+      <a href="#ventures">Ventures</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">The Portfolio</div>
+  <h1>One mind.<br>Many <em>creations.</em></h1>
+  <p>The Ill Minded builds, acquires, and operates ventures across healthcare logistics, software, real estate, and capital markets. This is the map.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Active Ventures</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Counties Served</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Industries</div>
+    </div>
+  </div>
+</div>
+
+<section id="ventures">
+  <div class="section-label">Portfolio</div>
+  <h2 class="section-heading">What we build and operate</h2>
+  <div class="ventures">
+
+    <!-- DME Pro -->
+    <div class="venture-card">
+      <div class="venture-header">
+        <img class="venture-logo" src="assets/logos/dme-pro-usa.png" alt="DME Pro">
+        <span class="venture-status attention">Active</span>
+      </div>
+      <div class="venture-name">DME Pro</div>
+      <div class="venture-category">Healthcare Logistics · Hospice DME</div>
+      <div class="venture-desc">Durable medical equipment rental and delivery for hospice patients across Los Angeles, Orange, San Bernardino, Riverside, and San Diego counties. The flagship venture and daily business.</div>
+      <div class="venture-meta">
+        <span>Tier 1</span>
+        <span>Southern California</span>
+      </div>
+    </div>
+
+    <!-- Raute -->
+    <div class="venture-card">
+      <div class="venture-header">
+        <img class="venture-logo" src="assets/logos/raute.png" alt="Raute.io">
+        <span class="venture-status active">Active</span>
+      </div>
+      <div class="venture-name">Raute.io</div>
+      <div class="venture-category">Software · Delivery SaaS</div>
+      <div class="venture-desc">Delivery and logistics software platform. Building the tools that DME Pro and similar operators use to dispatch, track, and prove delivery in real time.</div>
+      <div class="venture-meta">
+        <span>Tier 2</span>
+        <span>SaaS</span>
+      </div>
+    </div>
+
+    <!-- DDN -->
+    <div class="venture-card">
+      <div class="venture-header">
+        <img class="venture-logo" src="assets/logos/degen-daily-news.png" alt="Degen Daily News">
+        <span class="venture-status active">Active</span>
+      </div>
+      <div class="venture-name">Degen Daily News</div>
+      <div class="venture-category">Content · Sports Analytics</div>
+      <div class="venture-desc">AI powered sports prediction and content platform. Picks generated by a paper trading engine, published daily, backed by a quantitative research lab.</div>
+      <div class="venture-meta">
+        <span>Tier 3</span>
+        <span>Production</span>
+      </div>
+    </div>
+
+    <!-- DatWa -->
+    <div class="venture-card">
+      <div class="venture-header">
+        <img class="venture-logo" src="assets/logos/datwa.png" alt="DatWa">
+        <span class="venture-status active">Active</span>
+      </div>
+      <div class="venture-name">DatWa</div>
+      <div class="venture-category">E-commerce · Print on Demand</div>
+      <div class="venture-desc">Print on demand apparel brand. Designs inspired by culture, heritage, and architecture. Live store with Printify fulfillment and custom product drops.</div>
+      <div class="venture-meta">
+        <span>Tier 3</span>
+        <span>291 SKUs</span>
+      </div>
+    </div>
+
+    <!-- Howl -->
+    <div class="venture-card">
+      <div class="venture-header">
+        <img class="venture-logo" src="assets/logos/howl.png" alt="Howl Dating">
+        <span class="venture-status active">Active</span>
+      </div>
+      <div class="venture-name">Howl Dating</div>
+      <div class="venture-category">Software · Consumer App</div>
+      <div class="venture-desc">A dating platform building toward a new approach to online connection. Currently evaluating revive, park, or wind down.</div>
+      <div class="venture-meta">
+        <span>Tier 4</span>
+        <span>LLC</span>
+      </div>
+    </div>
+
+    <!-- Prime Lot Partners -->
+    <div class="venture-card">
+      <div class="venture-header">
+        <img class="venture-logo" src="assets/logos/prime-lot-partners.png" alt="Prime Lot Partners">
+        <span class="venture-status active">Active</span>
+      </div>
+      <div class="venture-name">Prime Lot Partners</div>
+      <div class="venture-category">Real Estate · NNN Investments</div>
+      <div class="venture-desc">Triple net lease deal flow and broker relationships. Tracking listings, deal stages, and broker check ins across commercial real estate opportunities.</div>
+      <div class="venture-meta">
+        <span>Tier 3</span>
+        <span>NNN</span>
+      </div>
+    </div>
+
+    <!-- Quant Lab -->
+    <div class="venture-card">
+      <div class="venture-header">
+        <div class="venture-logo" style="display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;color:#f0f0f2;">QL</div>
+        <span class="venture-status live">Live</span>
+      </div>
+      <div class="venture-name">Quant Lab</div>
+      <div class="venture-category">Research · ApexTape</div>
+      <div class="venture-desc">Quantitative research and paper trading engine powering DDN predictions. Runs simulated evaluations, forward testing, and gate based deployment of prediction models.</div>
+      <div class="venture-meta">
+        <span>Tier 2</span>
+        <span>Research</span>
+      </div>
+    </div>
+
+    <!-- Creative Terrain -->
+    <div class="venture-card">
+      <div class="venture-header">
+        <div class="venture-logo" style="display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#f0f0f2;">CT</div>
+        <span class="venture-status attention">Active</span>
+      </div>
+      <div class="venture-name">Creative Terrain Development</div>
+      <div class="venture-category">Real Estate · Commercial</div>
+      <div class="venture-desc">Commercial real estate holding company. Owns the DME Pro building and manages owner carry financing. 50/50 partnership structure.</div>
+      <div class="venture-meta">
+        <span>Tier 2</span>
+        <span>LLC</span>
+      </div>
+    </div>
+
+    <!-- CTD Capital -->
+    <div class="venture-card">
+      <div class="venture-header">
+        <div class="venture-logo" style="display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#f0f0f2;">CC</div>
+        <span class="venture-status attention">Active</span>
+      </div>
+      <div class="venture-name">CTD Capital</div>
+      <div class="venture-category">Real Estate · Capital</div>
+      <div class="venture-desc">Real estate capital and mortgage management. Planet Home Lending portfolio with Chase banking. Thomas managed, separate from Creative Terrain Development.</div>
+      <div class="venture-meta">
+        <span>Tier 3</span>
+        <span>Capital</span>
+      </div>
+    </div>
+
+    <!-- OpenOS -->
+    <div class="venture-card">
+      <div class="venture-header">
+        <div class="venture-logo" style="display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#f0f0f2;">OS</div>
+        <span class="venture-status active">Active</span>
+      </div>
+      <div class="venture-name">OpenOS by Values for America</div>
+      <div class="venture-category">Software · Open Source</div>
+      <div class="venture-desc">Open source AI tooling and infrastructure. Built on OpenRouter with DeepSeek models. Production deployed on Railway with automated health checks.</div>
+      <div class="venture-meta">
+        <span>Tier 3</span>
+        <span>Production</span>
+      </div>
+    </div>
+
+    <!-- Wodular -->
+    <div class="venture-card">
+      <div class="venture-header">
+        <div class="venture-logo" style="display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#f0f0f2;">W</div>
+        <span class="venture-status attention">Active</span>
+      </div>
+      <div class="venture-name">Wodular</div>
+      <div class="venture-category">Software · Fitness Tech</div>
+      <div class="venture-desc">A modular fitness platform built on Next.js and Supabase. Live site with authentication in development. Working toward a weekly cadence with the development team.</div>
+      <div class="venture-meta">
+        <span>Tier 3</span>
+        <span>Next.js</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-label">About</div>
+  <h2 class="section-heading">The approach</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>The Ill Minded is a portfolio of ventures built and operated by Cyrus Dorbayan. From hospice equipment delivery to quantitative research, each project solves a real problem with real revenue or real optionality.</p>
+      <p>The approach is simple. Start with the problem, not the market. Build what the operator needs first. Let software serve the business, not the other way around. Keep overhead close to zero. Reinvest what works, park what does not, and never let a venture go dormant without a decision.</p>
+    </div>
+    <div class="about-text">
+      <p>The portfolio spans five industries: healthcare logistics, software, e-commerce, real estate, and capital markets. The flagship, DME Pro, has served hospice patients across Southern California and is positioned for growth or acquisition.</p>
+      <p>Every venture is tracked in a single knowledge graph that keeps status, priority, and next actions visible at all times. The system runs itself with automated health checks, daily briefings, and a standing ladder of what is due when.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-heading">Reach out</h2>
+  <div class="about-text" style="max-width:600px;">
+    <p>For investment, partnership, or acquisition conversations, reach out directly.</p>
+    <p style="margin-top:24px;font-size:18px;color:var(--ink);">
+      <a href="mailto:support@dmeprousa.com" style="color:var(--ink);border-bottom:1px solid var(--border);padding-bottom:2px;">support@dmeprousa.com</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Creations of the Ill Minded</div>
+    <div class="footer-links">
+      <a href="#ventures">Ventures</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">&copy; 2026 The Ill Minded. All ventures are independently operated.</div>
+</footer>
+
+<script>
+  // Nav border on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 8) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }, { passive: true });
+</script>
+
+</body>
+</html>

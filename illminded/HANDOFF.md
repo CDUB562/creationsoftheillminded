@@ -51,40 +51,36 @@ Space Mono to load and an external SVG in an `img` tag cannot pull webfonts.
 Coin object spec from board section 05, for when the physical coin gets made: obverse mech brain,
 reverse struck zero, edge reeded at 60 ticks.
 
-## Ready to run prompt — Claude Code CLI on this PC
+## Deployment, corrected 2026-09-09
 
-Cowork could not commit or push. Its shell mounts this folder without delete rights, so git
-cannot clear its own lock file and has no credentials here either. Run this from
-`C:\Users\Cyrus\Code\creationsoftheillminded`.
+The site is served from the **gh-pages** branch, not main. gh-pages carries the CNAME for
+creationsoftheillminded.com. README.md still says "GitHub Pages from main", which is wrong and
+worth fixing.
 
----
-Read AGENTS.md and README.md first.
+gh-pages was also ahead of main. It already had the Field Notes homepage plus the Degen Daily
+News feature promotion and its image, none of which main had. The Barlow index.html sitting in
+the working tree was a local experiment that never shipped, and it is preserved on the
+`alt-barlow-redesign` branch as well.
 
-A stale lock file is blocking git in this repo. Delete `.git\index.lock`, then run
-`git status --short --branch` and show me the result before changing anything.
+## What is committed and waiting to push
 
-Work already done on disk, all of it uncommitted:
+**gh-pages**, one commit, purely additive, nothing existing touched: adds `illminded/` and
+`assets/brand/`.
 
-- `index.html` is now the Field Notes design, promoted from `publication-refined.html`, with the
-  footer design comparison nav removed. The rejected Barlow version is kept as
-  `index.barlow-rejected.20260907.bak.html`.
-- `illminded/index.html` is a new $ILLMINDED token landing page, plus `illminded/HANDOFF.md`.
-- `assets/brand/` holds the exported brand board, the roundel SVG and a marks sprite.
-- `assets/editorial/` holds the cover and project images.
-- `.gitignore` ignores `Claude outputs/`, a folder the Claude desktop app writes screenshots into.
-- `publication.html`, `publication-refined.html`, `exhibition.html`, `gallery.html` and `AGENTS.md`
-  are the rest of the 9/7 work.
+**main**, four commits, bringing the source branch in line with what ships: promote the Field
+Notes design to the root, add the brand system assets, add the token page, and sync the root
+with the published gh-pages homepage.
 
-Commit in three commits so the history reads clearly:
+## The push, which has to run on Windows
 
-1. `git add index.html index.barlow-rejected.20260907.bak.html publication.html publication-refined.html exhibition.html gallery.html assets/editorial AGENTS.md .gitignore`
-   then commit as "Promote Field Notes publication design to site root".
-2. `git add assets/brand` then commit as "Add Creations of the Ill Minded brand system assets".
-3. `git add illminded` then commit as "Add $ILLMINDED token landing page, unlinked pre launch".
+Cowork made the commits but cannot push: no git credentials on that side. It also cannot delete
+files in the repo, so its own git lock files are still sitting there and will block your git
+until they are removed. From PowerShell in `C:\Users\Cyrus\Code\creationsoftheillminded`:
 
-Do not commit the `Claude outputs` folder. Then push to origin main and tell me the two URLs to
-check: the site root and `/illminded/`.
+    Remove-Item .git\index.lock, .git\HEAD.lock, .git\objects\maintenance.lock -ErrorAction SilentlyContinue
+    Get-ChildItem .git\objects -Recurse -Filter 'tmp_obj_*' | Remove-Item
+    git status --short --branch
+    git push origin main gh-pages
 
-Do not link the token page from the homepage. It stays unlinked until the coin launches. Do not
-fill the TBD placeholders and do not change the disclaimer text.
----
+Then check `creationsoftheillminded.com/illminded/`. The homepage should be unchanged.
+

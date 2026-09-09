@@ -8,7 +8,8 @@ Portfolio landing page for The Ill Minded, the umbrella for Cyrus Dorbayan's ven
 - Venture logos in `assets/logos/`
 
 ## Deploy
-GitHub Pages from `main` branch. No build step needed.
+GitHub Pages deploys from the `gh-pages` branch. No build step needed.
+`main` is not the deployment branch.
 
 ## Domain
 creationsoftheillminded.com

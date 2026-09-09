@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+body { margin:0; background:#f7f8f2; }
+a { color:#103be8; } a:hover { color:#11120e; }
+</style>
+</helmet>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<g id="brain-icon">
+<path d="M 230 130 V 106" stroke="#11120e" stroke-width="10" stroke-linecap="round"></path>
+<circle cx="230" cy="97" r="11" fill="#d32011" stroke="#11120e" stroke-width="8"></circle>
+<g fill="#11120e">
+<rect x="106" y="262" width="42" height="16" rx="3"></rect><circle cx="104" cy="270" r="12"></circle>
+<rect x="312" y="262" width="42" height="16" rx="3"></rect><circle cx="356" cy="270" r="12"></circle>
+</g>
+<path d="M 98 264 L 110 276" stroke="#f7f8f2" stroke-width="3" stroke-linecap="round"></path>
+<path d="M 350 264 L 362 276" stroke="#f7f8f2" stroke-width="3" stroke-linecap="round"></path>
+<g stroke="#11120e" stroke-width="11" stroke-linejoin="round">
+<path fill="#efff49" d="M 156 262 C 142 234 150 206 172 190 C 172 164 194 146 222 150 C 228 132 254 128 260 146 C 288 140 312 158 312 184 C 332 200 336 230 322 258 C 328 280 314 296 292 298 L 184 298 C 162 296 148 280 156 262 Z"></path>
+<g fill="none" stroke-width="8" stroke-linecap="round">
+<path d="M 182 200 C 196 176 218 165 240 168"></path>
+<path d="M 308 202 C 296 178 274 166 252 169"></path>
+</g>
+<path fill="#103be8" d="M 142 210 C 194 185 266 185 318 210 L 313 240 C 263 217 197 217 147 240 Z"></path>
+</g>
+<path id="band1" d="M 152 235 A 162 162 0 0 1 308 235" fill="none"></path>
+<circle cx="162" cy="224" r="4" fill="#f7f8f2"></circle>
+<circle cx="298" cy="224" r="4" fill="#f7f8f2"></circle>
+<circle cx="196" cy="266" r="24" fill="#ffffff" stroke="#11120e" stroke-width="10"></circle>
+<circle cx="272" cy="266" r="24" fill="#ffffff" stroke="#11120e" stroke-width="10"></circle>
+<g stroke="none" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="{{ veinOpacity }}">
+<path d="M 181 272 C 186 271 189 269 191 266"></path>
+<path d="M 287 272 C 282 271 279 269 277 266"></path>
+</g>
+<circle cx="202" cy="266" r="10" fill="#11120e"></circle>
+<circle cx="266" cy="266" r="10" fill="#11120e"></circle>
+</g>
+<g id="brain-icon-dark">
+<path d="M 230 130 V 106" stroke="#efff49" stroke-width="10" stroke-linecap="round"></path>
+<circle cx="230" cy="97" r="11" fill="#d32011" stroke="#efff49" stroke-width="8"></circle>
+<g fill="#11120e">
+<rect x="106" y="262" width="42" height="16" rx="3"></rect><circle cx="104" cy="270" r="12"></circle>
+<rect x="312" y="262" width="42" height="16" rx="3"></rect><circle cx="356" cy="270" r="12"></circle>
+</g>
+<path d="M 98 264 L 110 276" stroke="#efff49" stroke-width="3" stroke-linecap="round"></path>
+<path d="M 350 264 L 362 276" stroke="#efff49" stroke-width="3" stroke-linecap="round"></path>
+<g stroke="#efff49" stroke-width="11" stroke-linejoin="round">
+<path fill="none" d="M 156 262 C 142 234 150 206 172 190 C 172 164 194 146 222 150 C 228 132 254 128 260 146 C 288 140 312 158 312 184 C 332 200 336 230 322 258 C 328 280 314 296 292 298 L 184 298 C 162 296 148 280 156 262 Z"></path>
+<g fill="none" stroke-width="8" stroke-linecap="round">
+<path d="M 182 200 C 196 176 218 165 240 168"></path>
+<path d="M 308 202 C 296 178 274 166 252 169"></path>
+</g>
+<path fill="#efff49" d="M 142 210 C 194 185 266 185 318 210 L 313 240 C 263 217 197 217 147 240 Z"></path>
+</g>
+<path id="band2" d="M 152 235 A 162 162 0 0 1 308 235" fill="none"></path>
+<circle cx="162" cy="224" r="4" fill="#11120e"></circle>
+<circle cx="298" cy="224" r="4" fill="#11120e"></circle>
+<circle cx="196" cy="266" r="24" fill="#f7f8f2" stroke="#efff49" stroke-width="10"></circle>
+<circle cx="272" cy="266" r="24" fill="#f7f8f2" stroke="#efff49" stroke-width="10"></circle>
+<g stroke="none" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="{{ veinOpacity }}">
+<path d="M 181 272 C 186 271 189 269 191 266"></path>
+<path d="M 287 272 C 282 271 279 269 277 266"></path>
+</g>
+<circle cx="202" cy="266" r="10" fill="#11120e"></circle>
+<circle cx="266" cy="266" r="10" fill="#11120e"></circle>
+</g>
+<g id="brain-full">
+<path d="M 230 130 V 106" stroke="#11120e" stroke-width="10" stroke-linecap="round"></path>
+<circle cx="230" cy="97" r="11" fill="#d32011" stroke="#11120e" stroke-width="8"></circle>
+<g fill="#11120e">
+<rect x="106" y="262" width="42" height="16" rx="3"></rect><circle cx="104" cy="270" r="12"></circle>
+<rect x="312" y="262" width="42" height="16" rx="3"></rect><circle cx="356" cy="270" r="12"></circle>
+</g>
+<path d="M 98 264 L 110 276" stroke="#f7f8f2" stroke-width="3" stroke-linecap="round"></path>
+<path d="M 350 264 L 362 276" stroke="#f7f8f2" stroke-width="3" stroke-linecap="round"></path>
+<g stroke="#11120e" stroke-width="11" stroke-linejoin="round">
+<path fill="#efff49" d="M 156 262 C 142 234 150 206 172 190 C 172 164 194 146 222 150 C 228 132 254 128 260 146 C 288 140 312 158 312 184 C 332 200 336 230 322 258 C 328 280 314 296 292 298 L 184 298 C 162 296 148 280 156 262 Z"></path>
+<g fill="none" stroke-width="8" stroke-linecap="round">
+<path d="M 182 200 C 196 176 218 165 240 168"></path>
+<path d="M 308 202 C 296 178 274 166 252 169"></path>
+</g>
+<path fill="#103be8" d="M 142 210 C 194 185 266 185 318 210 L 313 240 C 263 217 197 217 147 240 Z"></path>
+</g>
+<path id="band3" d="M 152 235 A 162 162 0 0 1 308 235" fill="none"></path>
+<circle cx="162" cy="224" r="4" fill="#f7f8f2"></circle>
+<circle cx="298" cy="224" r="4" fill="#f7f8f2"></circle>
+<text font-family="'Space Mono',monospace" font-weight="700" font-size="15" letter-spacing="2.4" fill="#f7f8f2"><textPath href="#band3" startOffset="50%" text-anchor="middle">0X1LLM1ND3D</textPath></text>
+<circle cx="196" cy="266" r="24" fill="#ffffff" stroke="#11120e" stroke-width="10"></circle>
+<circle cx="272" cy="266" r="24" fill="#ffffff" stroke="#11120e" stroke-width="10"></circle>
+<g stroke="#d32011" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="{{ veinOpacity }}">
+<path d="M 181 272 C 186 271 189 269 191 266"></path>
+<path d="M 287 272 C 282 271 279 269 277 266"></path>
+</g>
+<circle cx="202" cy="266" r="10" fill="#11120e"></circle>
+<circle cx="266" cy="266" r="10" fill="#11120e"></circle>
+</g>
+<g id="brain-ink">
+<path d="M 230 130 V 106" stroke="#11120e" stroke-width="10" stroke-linecap="round"></path>
+<circle cx="230" cy="97" r="11" fill="#f7f8f2" stroke="#11120e" stroke-width="8"></circle>
+<g fill="#11120e">
+<rect x="106" y="262" width="42" height="16" rx="3"></rect><circle cx="104" cy="270" r="12"></circle>
+<rect x="312" y="262" width="42" height="16" rx="3"></rect><circle cx="356" cy="270" r="12"></circle>
+</g>
+<path d="M 98 264 L 110 276" stroke="#f7f8f2" stroke-width="3" stroke-linecap="round"></path>
+<path d="M 350 264 L 362 276" stroke="#f7f8f2" stroke-width="3" stroke-linecap="round"></path>
+<g stroke="#11120e" stroke-width="11" stroke-linejoin="round">
+<path fill="#f7f8f2" d="M 156 262 C 142 234 150 206 172 190 C 172 164 194 146 222 150 C 228 132 254 128 260 146 C 288 140 312 158 312 184 C 332 200 336 230 322 258 C 328 280 314 296 292 298 L 184 298 C 162 296 148 280 156 262 Z"></path>
+<g fill="none" stroke-width="8" stroke-linecap="round">
+<path d="M 182 200 C 196 176 218 165 240 168"></path>
+<path d="M 308 202 C 296 178 274 166 252 169"></path>
+</g>
+<path fill="#11120e" d="M 142 210 C 194 185 266 185 318 210 L 313 240 C 263 217 197 217 147 240 Z"></path>
+</g>
+<path id="band4" d="M 152 235 A 162 162 0 0 1 308 235" fill="none"></path>
+<circle cx="162" cy="224" r="4" fill="#f7f8f2"></circle>
+<circle cx="298" cy="224" r="4" fill="#f7f8f2"></circle>
+<text font-family="'Space Mono',monospace" font-weight="700" font-size="15" letter-spacing="2.4" fill="#f7f8f2"><textPath href="#band4" startOffset="50%" text-anchor="middle">0X1LLM1ND3D</textPath></text>
+<circle cx="196" cy="266" r="24" fill="#f7f8f2" stroke="#11120e" stroke-width="10"></circle>
+<circle cx="272" cy="266" r="24" fill="#f7f8f2" stroke="#11120e" stroke-width="10"></circle>
+<g stroke="transparent" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="{{ veinOpacity }}">
+<path d="M 181 272 C 186 271 189 269 191 266"></path>
+<path d="M 287 272 C 282 271 279 269 277 266"></path>
+</g>
+<circle cx="202" cy="266" r="10" fill="#11120e"></circle>
+<circle cx="266" cy="266" r="10" fill="#11120e"></circle>
+</g>
+<g id="brain-paper">
+<path d="M 230 130 V 106" stroke="#f7f8f2" stroke-width="10" stroke-linecap="round"></path>
+<circle cx="230" cy="97" r="11" fill="#11120e" stroke="#f7f8f2" stroke-width="8"></circle>
+<g fill="#f7f8f2">
+<rect x="106" y="262" width="42" height="16" rx="3"></rect><circle cx="104" cy="270" r="12"></circle>
+<rect x="312" y="262" width="42" height="16" rx="3"></rect><circle cx="356" cy="270" r="12"></circle>
+</g>
+<path d="M 98 264 L 110 276" stroke="#11120e" stroke-width="3" stroke-linecap="round"></path>
+<path d="M 350 264 L 362 276" stroke="#11120e" stroke-width="3" stroke-linecap="round"></path>
+<g stroke="#f7f8f2" stroke-width="11" stroke-linejoin="round">
+<path fill="#11120e" d="M 156 262 C 142 234 150 206 172 190 C 172 164 194 146 222 150 C 228 132 254 128 260 146 C 288 140 312 158 312 184 C 332 200 336 230 322 258 C 328 280 314 296 292 298 L 184 298 C 162 296 148 280 156 262 Z"></path>
+<g fill="none" stroke-width="8" stroke-linecap="round">
+<path d="M 182 200 C 196 176 218 165 240 168"></path>
+<path d="M 308 202 C 296 178 274 166 252 169"></path>
+</g>
+<path fill="#f7f8f2" d="M 142 210 C 194 185 266 185 318 210 L 313 240 C 263 217 197 217 147 240 Z"></path>
+</g>
+<path id="band5" d="M 152 235 A 162 162 0 0 1 308 235" fill="none"></path>
+<circle cx="162" cy="224" r="4" fill="#11120e"></circle>
+<circle cx="298" cy="224" r="4" fill="#11120e"></circle>
+<text font-family="'Space Mono',monospace" font-weight="700" font-size="15" letter-spacing="2.4" fill="#11120e"><textPath href="#band5" startOffset="50%" text-anchor="middle">0X1LLM1ND3D</textPath></text>
+<circle cx="196" cy="266" r="24" fill="#f7f8f2" stroke="#f7f8f2" stroke-width="10"></circle>
+<circle cx="272" cy="266" r="24" fill="#f7f8f2" stroke="#f7f8f2" stroke-width="10"></circle>
+<g stroke="transparent" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="{{ veinOpacity }}">
+<path d="M 181 272 C 186 271 189 269 191 266"></path>
+<path d="M 287 272 C 282 271 279 269 277 266"></path>
+</g>
+<circle cx="202" cy="266" r="10" fill="#11120e"></circle>
+<circle cx="266" cy="266" r="10" fill="#11120e"></circle>
+</g>
+<g id="brain-dark">
+<path d="M 230 130 V 106" stroke="#efff49" stroke-width="10" stroke-linecap="round"></path>
+<circle cx="230" cy="97" r="11" fill="#d32011" stroke="#efff49" stroke-width="8"></circle>
+<g fill="#efff49">
+<rect x="106" y="262" width="42" height="16" rx="3"></rect><circle cx="104" cy="270" r="12"></circle>
+<rect x="312" y="262" width="42" height="16" rx="3"></rect><circle cx="356" cy="270" r="12"></circle>
+</g>
+<path d="M 98 264 L 110 276" stroke="#11120e" stroke-width="3" stroke-linecap="round"></path>
+<path d="M 350 264 L 362 276" stroke="#11120e" stroke-width="3" stroke-linecap="round"></path>
+<g stroke="#efff49" stroke-width="11" stroke-linejoin="round">
+<path fill="none" d="M 156 262 C 142 234 150 206 172 190 C 172 164 194 146 222 150 C 228 132 254 128 260 146 C 288 140 312 158 312 184 C 332 200 336 230 322 258 C 328 280 314 296 292 298 L 184 298 C 162 296 148 280 156 262 Z"></path>
+<g fill="none" stroke-width="8" stroke-linecap="round">
+<path d="M 182 200 C 196 176 218 165 240 168"></path>
+<path d="M 308 202 C 296 178 274 166 252 169"></path>
+</g>
+<path fill="#efff49" d="M 142 210 C 194 185 266 185 318 210 L 313 240 C 263 217 197 217 147 240 Z"></path>
+</g>
+<path id="band6" d="M 152 235 A 162 162 0 0 1 308 235" fill="none"></path>
+<circle cx="162" cy="224" r="4" fill="#11120e"></circle>
+<circle cx="298" cy="224" r="4" fill="#11120e"></circle>
+<text font-family="'Space Mono',monospace" font-weight="700" font-size="15" letter-spacing="2.4" fill="#11120e"><textPath href="#band6" startOffset="50%" text-anchor="middle">0X1LLM1ND3D</textPath></text>
+<circle cx="196" cy="266" r="24" fill="#f7f8f2" stroke="#efff49" stroke-width="10"></circle>
+<circle cx="272" cy="266" r="24" fill="#f7f8f2" stroke="#efff49" stroke-width="10"></circle>
+<g stroke="transparent" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="{{ veinOpacity }}">
+<path d="M 181 272 C 186 271 189 269 191 266"></path>
+<path d="M 287 272 C 282 271 279 269 277 266"></path>
+</g>
+<circle cx="202" cy="266" r="10" fill="#11120e"></circle>
+<circle cx="266" cy="266" r="10" fill="#11120e"></circle>
+</g>
+<g id="brain-coin">
+<path d="M 230 130 V 106" stroke="#11120e" stroke-width="10" stroke-linecap="round"></path>
+<circle cx="230" cy="97" r="11" fill="#f7f8f2" stroke="#11120e" stroke-width="8"></circle>
+<g fill="#11120e">
+<rect x="106" y="262" width="42" height="16" rx="3"></rect><circle cx="104" cy="270" r="12"></circle>
+<rect x="312" y="262" width="42" height="16" rx="3"></rect><circle cx="356" cy="270" r="12"></circle>
+</g>
+<path d="M 98 264 L 110 276" stroke="#efff49" stroke-width="3" stroke-linecap="round"></path>
+<path d="M 350 264 L 362 276" stroke="#efff49" stroke-width="3" stroke-linecap="round"></path>
+<g stroke="#11120e" stroke-width="11" stroke-linejoin="round">
+<path fill="#efff49" d="M 156 262 C 142 234 150 206 172 190 C 172 164 194 146 222 150 C 228 132 254 128 260 146 C 288 140 312 158 312 184 C 332 200 336 230 322 258 C 328 280 314 296 292 298 L 184 298 C 162 296 148 280 156 262 Z"></path>
+<g fill="none" stroke-width="8" stroke-linecap="round">
+<path d="M 182 200 C 196 176 218 165 240 168"></path>
+<path d="M 308 202 C 296 178 274 166 252 169"></path>
+</g>
+<path fill="#11120e" d="M 142 210 C 194 185 266 185 318 210 L 313 240 C 263 217 197 217 147 240 Z"></path>
+</g>
+<path id="band7" d="M 152 235 A 162 162 0 0 1 308 235" fill="none"></path>
+<circle cx="162" cy="224" r="4" fill="#efff49"></circle>
+<circle cx="298" cy="224" r="4" fill="#efff49"></circle>
+<text font-family="'Space Mono',monospace" font-weight="700" font-size="15" letter-spacing="2.4" fill="#efff49"><textPath href="#band7" startOffset="50%" text-anchor="middle">0X1LLM1ND3D</textPath></text>
+<circle cx="196" cy="266" r="24" fill="#f7f8f2" stroke="#11120e" stroke-width="10"></circle>
+<circle cx="272" cy="266" r="24" fill="#f7f8f2" stroke="#11120e" stroke-width="10"></circle>
+<g stroke="transparent" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="{{ veinOpacity }}">
+<path d="M 181 272 C 186 271 189 269 191 266"></path>
+<path d="M 287 272 C 282 271 279 269 277 266"></path>
+</g>
+<circle cx="202" cy="266" r="10" fill="#11120e"></circle>
+<circle cx="266" cy="266" r="10" fill="#11120e"></circle>
+</g>
+<symbol id="mk-full" viewBox="0 0 460 460">
+<path id="mkArcFL" d="M 107.5 249.4 A 124 124 0 0 1 197.9 110.2" fill="none"></path>
+<path id="mkArcFR" d="M 262.1 110.2 A 124 124 0 0 1 352.5 249.4" fill="none"></path>
+<circle cx="230" cy="230" r="218" fill="#11120e"></circle>
+<circle cx="230" cy="230" r="200" fill="#f7f8f2" stroke="#efff49" stroke-width="7"></circle>
+<circle cx="230" cy="230" r="162" fill="none" stroke="#11120e" stroke-width="6"></circle>
+<g fill="#11120e" opacity="{{ ringOpacity }}">
+<circle cx="230" cy="48" r="7"></circle><circle cx="230" cy="412" r="7"></circle>
+<circle cx="48" cy="230" r="7"></circle><circle cx="412" cy="230" r="7"></circle>
+<circle cx="101" cy="101" r="7"></circle><circle cx="359" cy="101" r="7"></circle>
+<circle cx="101" cy="359" r="7"></circle><circle cx="359" cy="359" r="7"></circle>
+</g>
+<use href="#brain-full"></use>
+<text font-size="26" letter-spacing="3" fill="#11120e" font-family="'Space Mono',monospace" font-weight="700">
+<textPath href="#mkArcFL" startOffset="50%" text-anchor="middle">CREATIONS</textPath>
+</text>
+<text font-size="26" letter-spacing="7" fill="#11120e" font-family="'Space Mono',monospace" font-weight="700">
+<textPath href="#mkArcFR" startOffset="50%" text-anchor="middle">OF THE</textPath>
+</text>
+<g stroke="#11120e" stroke-width="9" stroke-linejoin="round">
+<path fill="#103be8" d="M 90 322 L 122 306 L 122 356 L 90 340 L 100 331 Z"></path>
+<path fill="#103be8" d="M 370 322 L 338 306 L 338 356 L 370 340 L 360 331 Z"></path>
+<rect x="116" y="304" width="228" height="52" fill="#103be8"></rect>
+</g>
+<text x="230" y="340" text-anchor="middle" font-family="'Space Mono',monospace" font-weight="700" font-size="25" letter-spacing="4" fill="#f7f8f2">ILL MINDED</text>
+</symbol>
+<symbol id="mk-ink" viewBox="0 0 460 460">
+<path id="mkArcIL" d="M 107.5 249.4 A 124 124 0 0 1 197.9 110.2" fill="none"></path>
+<path id="mkArcIR" d="M 262.1 110.2 A 124 124 0 0 1 352.5 249.4" fill="none"></path>
+<circle cx="230" cy="230" r="212" fill="#f7f8f2" stroke="#11120e" stroke-width="12"></circle>
+<circle cx="230" cy="230" r="196" fill="none" stroke="#11120e" stroke-width="4"></circle>
+<circle cx="230" cy="230" r="162" fill="none" stroke="#11120e" stroke-width="6"></circle>
+<g fill="#11120e" opacity="{{ ringOpacity }}">
+<circle cx="230" cy="48" r="7"></circle><circle cx="230" cy="412" r="7"></circle>
+<circle cx="48" cy="230" r="7"></circle><circle cx="412" cy="230" r="7"></circle>
+<circle cx="101" cy="101" r="7"></circle><circle cx="359" cy="101" r="7"></circle>
+<circle cx="101" cy="359" r="7"></circle><circle cx="359" cy="359" r="7"></circle>
+</g>
+<use href="#brain-ink"></use>
+<text font-size="26" letter-spacing="3" fill="#11120e" font-family="'Space Mono',monospace" font-weight="700">
+<textPath href="#mkArcIL" startOffset="50%" text-anchor="middle">CREATIONS</textPath>
+</text>
+<text font-size="26" letter-spacing="7" fill="#11120e" font-family="'Space Mono',monospace" font-weight="700">
+<textPath href="#mkArcIR" startOffset="50%" text-anchor="middle">OF THE</textPath>
+</text>
+<g stroke="#11120e" stroke-width="9" stroke-linejoin="round">
+<path fill="#11120e" d="M 90 322 L 122 306 L 122 356 L 90 340 L 100 331 Z"></path>
+<path fill="#11120e" d="M 370 322 L 338 306 L 338 356 L 370 340 L 360 331 Z"></path>
+<rect x="116" y="304" width="228" height="52" fill="#11120e"></rect>
+</g>
+<text x="230" y="340" text-anchor="middle" font-family="'Space Mono',monospace" font-weight="700" font-size="25" letter-spacing="4" fill="#f7f8f2">ILL MINDED</text>
+</symbol>
+<symbol id="mk-paper" viewBox="0 0 460 460">
+<path id="mkArcPL" d="M 107.5 249.4 A 124 124 0 0 1 197.9 110.2" fill="none"></path>
+<path id="mkArcPR" d="M 262.1 110.2 A 124 124 0 0 1 352.5 249.4" fill="none"></path>
+<circle cx="230" cy="230" r="212" fill="#11120e" stroke="#f7f8f2" stroke-width="12"></circle>
+<circle cx="230" cy="230" r="196" fill="none" stroke="#f7f8f2" stroke-width="4"></circle>
+<circle cx="230" cy="230" r="162" fill="none" stroke="#f7f8f2" stroke-width="6"></circle>
+<g fill="#f7f8f2" opacity="{{ ringOpacity }}">
+<circle cx="230" cy="48" r="7"></circle><circle cx="230" cy="412" r="7"></circle>
+<circle cx="48" cy="230" r="7"></circle><circle cx="412" cy="230" r="7"></circle>
+<circle cx="101" cy="101" r="7"></circle><circle cx="359" cy="101" r="7"></circle>
+<circle cx="101" cy="359" r="7"></circle><circle cx="359" cy="359" r="7"></circle>
+</g>
+<use href="#brain-paper"></use>
+<text font-size="26" letter-spacing="3" fill="#f7f8f2" font-family="'Space Mono',monospace" font-weight="700">
+<textPath href="#mkArcPL" startOffset="50%" text-anchor="middle">CREATIONS</textPath>
+</text>
+<text font-size="26" letter-spacing="7" fill="#f7f8f2" font-family="'Space Mono',monospace" font-weight="700">
+<textPath href="#mkArcPR" startOffset="50%" text-anchor="middle">OF THE</textPath>
+</text>
+<g stroke="#f7f8f2" stroke-width="9" stroke-linejoin="round">
+<path fill="#f7f8f2" d="M 90 322 L 122 306 L 122 356 L 90 340 L 100 331 Z"></path>
+<path fill="#f7f8f2" d="M 370 322 L 338 306 L 338 356 L 370 340 L 360 331 Z"></path>
+<rect x="116" y="304" width="228" height="52" fill="#f7f8f2"></rect>
+</g>
+<text x="230" y="340" text-anchor="middle" font-family="'Space Mono',monospace" font-weight="700" font-size="25" letter-spacing="4" fill="#11120e">ILL MINDED</text>
+</symbol>
+<symbol id="mk-micro" viewBox="0 0 340 340">
+<g transform="translate(-64,-22)">
+<path d="M 230 138 V 118" stroke="#11120e" stroke-width="14" stroke-linecap="round"></path>
+<circle cx="230" cy="108" r="15" fill="#d32011" stroke="#11120e" stroke-width="10"></circle>
+<g stroke="#11120e" stroke-width="16" stroke-linejoin="round">
+<path fill="#efff49" d="M 156 262 C 142 234 150 206 172 190 C 172 164 194 146 222 150 C 228 132 254 128 260 146 C 288 140 312 158 312 184 C 332 200 336 230 322 258 C 328 280 314 296 292 298 L 184 298 C 162 296 148 280 156 262 Z"></path>
+<path fill="#103be8" d="M 142 212 C 194 188 266 188 318 212 L 313 240 C 263 218 197 218 147 240 Z"></path>
+</g>
+<circle cx="196" cy="266" r="25" fill="#f7f8f2" stroke="#11120e" stroke-width="14"></circle>
+<circle cx="272" cy="266" r="25" fill="#f7f8f2" stroke="#11120e" stroke-width="14"></circle>
+<circle cx="200" cy="266" r="11" fill="#11120e"></circle>
+<circle cx="268" cy="266" r="11" fill="#11120e"></circle>
+</g>
+</symbol>
+<symbol id="mk-icon" viewBox="0 0 340 340">
+<use href="#brain-icon" transform="translate(-64,-22)"></use>
+</symbol>
+<symbol id="mk-icon-dark" viewBox="0 0 340 340">
+<use href="#brain-icon-dark" transform="translate(-64,-22)"></use>
+</symbol>
+</defs>
+</svg>
+<div style="max-width:1240px;margin:0 auto;padding:56px 40px 80px;font-family:'Space Grotesk',sans-serif;color:#11120e">
+<div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;border-bottom:1px solid #a4a59c;padding-bottom:12px">
+<span>CREATIONSOFTHEILLMINDED.COM</span>
+<span>BRAND SYSTEM / {{ year }}</span>
+</div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin:40px 0 64px">
+<div>
+<h1 style="margin:0;font-size:clamp(34px,5vw,58px);font-weight:700;letter-spacing:-.01em;line-height:1.02">Creations of the<br>Ill Minded</h1>
+<p style="margin:14px 0 0;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.08em">Business. Technology. Visual culture.</p>
+</div>
+<svg width="120" height="120" viewBox="0 0 460 460"><use href="#mk-full"></use></svg>
+</div>
+
+<div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid #a4a59c;padding-top:10px;margin-bottom:24px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em"><b>01</b><span>MASTER MARK</span><span style="margin-left:auto;font-size:10px;color:#6b6c63">MECH BRAIN ROUNDEL</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;align-items:stretch">
+<div style="grid-column:span 1;background:#f7f8f2;border:1px solid #a4a59c;padding:36px;display:flex;align-items:center;justify-content:center"><svg style="width:100%;max-width:380px;height:auto" viewBox="0 0 460 460"><use href="#mk-full"></use></svg></div>
+<div style="display:flex;flex-direction:column;gap:24px;justify-content:center">
+<p style="margin:0;font-size:15px;line-height:1.6;max-width:44ch">The mech brain roundel. Riveted forehead band carries the contract address; antenna, side bolts and bloodshot eyes carry the kustom kulture. Double border, rivet ring at 45° increments, arc type and ribbon banner hold the badge geometry.</p>
+<div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;line-height:2">
+BAND — {{ contract }}<br>SERIAL — {{ serial }} / {{ year }}<br>COLORS — INK / PAPER / BLUE / ACID / RED
+</div>
+</div>
+</div>
+
+<div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid #a4a59c;padding-top:10px;margin:56px 0 24px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em"><b>02</b><span>ICON + ONE COLOR</span><span style="margin-left:auto;font-size:10px;color:#6b6c63">EMBROIDERY / SCREEN PRINT SAFE</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px">
+<div style="background:#f7f8f2;border:1px solid #a4a59c;padding:28px;display:flex;flex-direction:column;align-items:center;gap:16px"><svg style="width:200px;height:200px;max-width:100%;aspect-ratio:1" viewBox="0 0 340 340"><use href="#mk-icon"></use></svg><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em">ICON ONLY</span></div>
+<div style="background:#f7f8f2;border:1px solid #a4a59c;padding:28px;display:flex;flex-direction:column;align-items:center;gap:16px"><svg style="width:78%;max-width:220px;height:auto" viewBox="0 0 460 460"><use href="#mk-ink"></use></svg><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em">INK ON PAPER</span></div>
+<div style="background:#11120e;border:1px solid #11120e;padding:28px;display:flex;flex-direction:column;align-items:center;gap:16px"><svg style="width:78%;max-width:220px;height:auto" viewBox="0 0 460 460"><use href="#mk-paper"></use></svg><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;color:#f7f8f2">PAPER ON INK</span></div>
+</div>
+
+<div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid #a4a59c;padding-top:10px;margin:56px 0 24px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em"><b>03</b><span>WORDMARK LOCKUPS</span><span style="margin-left:auto;font-size:10px;color:#6b6c63">SPACE GROTESK 700</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+<div style="background:#f7f8f2;border:1px solid #a4a59c;padding:40px;display:flex;align-items:center;justify-content:center">
+<div style="display:flex;align-items:center;gap:24px">
+<svg width="88" height="88" viewBox="0 0 340 340" style="flex:none"><use href="#mk-icon"></use></svg>
+<div>
+<div style="font-family:'Space Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.32em;white-space:nowrap">CREATIONS OF THE</div>
+<div style="font-weight:700;font-size:clamp(26px,4vw,46px);letter-spacing:.01em;line-height:1.05;white-space:nowrap">ILL MINDED</div>
+</div>
+</div>
+</div>
+<div style="background:#f7f8f2;border:1px solid #a4a59c;padding:40px;display:flex;align-items:center;justify-content:center">
+<div style="display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+<svg width="84" height="84" viewBox="0 0 340 340"><use href="#mk-icon"></use></svg>
+<div style="font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.32em">CREATIONS OF THE</div>
+<div style="font-weight:700;font-size:40px;letter-spacing:.01em;line-height:1">ILL MINDED</div>
+<div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.22em;border-top:1px solid #a4a59c;padding-top:10px">{{ serial }} / {{ year }}</div>
+</div>
+</div>
+</div>
+
+<div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid #a4a59c;padding-top:10px;margin:56px 0 24px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em"><b>04</b><span>DEPARTMENT PATCHES</span><span style="margin-left:auto;font-size:10px;color:#6b6c63">3 COLORS MAX EACH</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+<div style="background:#f7f8f2;border:1px solid #a4a59c;padding:28px;display:flex;flex-direction:column;align-items:center;gap:14px">
+<svg style="width:88%;max-width:290px;height:auto" viewBox="0 0 480 452">
+<g stroke="#11120e" stroke-width="14" stroke-linejoin="round">
+<path fill="#f7f8f2" d="M 240 30 L 456 400 H 24 Z"></path>
+<path fill="none" stroke-width="6" d="M 240 76 L 404 356 H 76 Z"></path>
+</g>
+<g stroke="#11120e" stroke-width="8" stroke-linecap="round">
+<path d="M 240 92 V 106"></path>
+<path d="M 186 116 L 196 128"></path>
+<path d="M 294 116 L 284 128"></path>
+<path d="M 168 164 H 182"></path>
+<path d="M 312 164 H 298"></path>
+</g>
+<circle cx="240" cy="166" r="38" fill="#efff49" stroke="#11120e" stroke-width="11"></circle>
+<circle cx="240" cy="166" r="17" fill="#103be8" stroke="#11120e" stroke-width="6"></circle>
+<g stroke="#f7f8f2" stroke-width="3.5" fill="none" stroke-linecap="round">
+<path d="M 231 172 C 234 165 240 162 246 164"></path>
+<path d="M 236 176 C 240 172 245 171 249 173"></path>
+</g>
+<g stroke="#d32011" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="{{ veinOpacity }}">
+<path d="M 219 176 C 224 175 227 173 229 170"></path>
+</g>
+<g stroke="#11120e" stroke-width="12" stroke-linejoin="round" stroke-linecap="round" transform="translate(0,-18)">
+<path fill="#103be8" d="M 66 330 C 132 330 170 290 216 252 C 264 212 332 222 346 270 C 358 312 324 344 296 334 C 270 324 270 292 294 288 C 264 274 228 300 216 330 Z"></path>
+</g>
+<g stroke="#f7f8f2" stroke-width="6" fill="none" stroke-linecap="round" transform="translate(0,-18)">
+<path d="M 122 320 C 152 300 176 284 200 266"></path>
+<path d="M 158 326 C 188 306 208 290 230 276"></path>
+</g>
+<path d="M 78 326 C 150 314 220 318 288 330" stroke="#efff49" stroke-width="9" fill="none" stroke-linecap="round"></path>
+<text x="240" y="388" text-anchor="middle" font-family="'Space Mono',monospace" font-weight="700" font-size="21" letter-spacing="4" fill="#11120e">SURF DEPT.</text>
+<text x="240" y="436" text-anchor="middle" font-family="'Space Mono',monospace" font-weight="700" font-size="15" letter-spacing="3" fill="#103be8">ILL MINDED / N0.752936</text>
+</svg>
+<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em">SURF DEPT. — BRAIN WAVE + EYEBALL SUN</span>
+</div>
+<div style="background:#f7f8f2;border:1px solid #a4a59c;padding:28px;display:flex;flex-direction:column;align-items:center;gap:14px">
+<svg style="width:78%;max-width:250px;height:auto" viewBox="0 0 420 452">
+<g stroke="#11120e" stroke-width="12" stroke-linejoin="round">
+<path fill="#103be8" d="M 66 50 H 354 V 250 C 354 328 210 386 210 386 C 210 386 66 328 66 250 Z"></path>
+<path fill="none" stroke="#efff49" stroke-width="6" d="M 88 72 H 332 V 246 C 332 310 210 360 210 360 C 210 360 88 310 88 246 Z"></path>
+</g>
+<g stroke="#efff49" stroke-width="9" fill="none" stroke-linecap="round">
+<path d="M 112 98 L 132 118 L 152 98"></path>
+<path d="M 268 98 L 288 118 L 308 98"></path>
+</g>
+<use href="#brain-coin" transform="translate(31,32) scale(0.78)"></use>
+<text x="210" y="316" text-anchor="middle" font-family="'Space Mono',monospace" font-weight="700" font-size="20" letter-spacing="3" fill="#f7f8f2">ILL MINDED</text>
+<text x="210" y="428" text-anchor="middle" font-family="'Space Mono',monospace" font-weight="700" font-size="15" letter-spacing="3" fill="#11120e">CREATIONS / MMXXVI</text>
+</svg>
+<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em">VARSITY SHIELD</span>
+</div>
+<div style="background:#f7f8f2;border:1px solid #a4a59c;padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
+<svg style="width:100%;max-width:340px;height:auto" viewBox="0 0 560 240">
+<rect x="16" y="22" width="528" height="196" rx="14" fill="#efff49" stroke="#11120e" stroke-width="9"></rect>
+<rect x="34" y="40" width="352" height="160" fill="none" stroke="#11120e" stroke-width="4"></rect>
+<path d="M 404 34 V 206" stroke="#11120e" stroke-width="4" stroke-dasharray="2 11" stroke-linecap="round"></path>
+<circle cx="404" cy="22" r="12" fill="#f7f8f2" stroke="#11120e" stroke-width="9"></circle>
+<circle cx="404" cy="218" r="12" fill="#f7f8f2" stroke="#11120e" stroke-width="9"></circle>
+<svg x="52" y="72" width="96" height="96" viewBox="0 0 340 340"><use href="#mk-icon"></use></svg>
+<text x="164" y="86" font-family="'Space Mono',monospace" font-weight="700" font-size="11" letter-spacing="2" fill="#103be8">CREATIONS OF THE</text>
+<text x="164" y="126" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="33" letter-spacing="1" fill="#11120e">ADMIT ONE</text>
+<text x="164" y="160" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="26" letter-spacing="1" fill="#103be8">ILL IDEA</text>
+<text x="164" y="188" font-family="'Space Mono',monospace" font-weight="700" font-size="13" letter-spacing="2" fill="#11120e">NO REFUNDS</text>
+<text transform="rotate(90 434 62)" x="434" y="62" font-family="'Space Mono',monospace" font-weight="700" font-size="15" letter-spacing="2" fill="#11120e">N0.752936</text>
+<circle cx="512" cy="120" r="16" fill="#ffffff" stroke="#11120e" stroke-width="7"></circle>
+<circle cx="515" cy="120" r="7" fill="#11120e"></circle>
+</svg>
+<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em">TICKET STUB</span>
+</div>
+</div>
+
+<div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid #a4a59c;padding-top:10px;margin:56px 0 24px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em"><b>05</b><span>$ILLMINDED COIN</span><span style="margin-left:auto;font-size:10px;color:#6b6c63">WORTH NOTHING BY DESIGN</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;align-items:stretch">
+<div style="background:#f7f8f2;border:1px solid #a4a59c;padding:32px;display:flex;flex-direction:column;align-items:center;gap:14px">
+<svg style="width:82%;max-width:280px;height:auto" viewBox="0 0 420 420">
+<circle cx="210" cy="210" r="202" fill="#11120e"></circle>
+<circle cx="210" cy="210" r="193" fill="none" stroke="#efff49" stroke-width="10" stroke-dasharray="3.5 6.6"></circle>
+<circle cx="210" cy="210" r="181" fill="#efff49" stroke="#11120e" stroke-width="7"></circle>
+<circle cx="210" cy="210" r="146" fill="none" stroke="#11120e" stroke-width="5"></circle>
+<defs>
+<path id="cnFa" d="M 94 210 A 116 116 0 0 1 326 210" fill="none"></path>
+<path id="cnFb" d="M 94 210 A 116 116 0 0 0 326 210" fill="none"></path>
+</defs>
+<text font-size="25" letter-spacing="6" fill="#11120e" font-family="'Space Mono',monospace" font-weight="700"><textPath href="#cnFa" startOffset="50%" text-anchor="middle">$ILLMINDED</textPath></text>
+<text font-size="15" letter-spacing="2" fill="#11120e" font-family="'Space Mono',monospace" font-weight="700"><textPath href="#cnFb" startOffset="50%" text-anchor="middle">ROBINHOOD CHAIN / MMXXVI</textPath></text>
+<use href="#brain-coin" transform="translate(42,68) scale(0.72)"></use>
+</svg>
+<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em">FRONT</span>
+</div>
+<div style="background:#f7f8f2;border:1px solid #a4a59c;padding:32px;display:flex;flex-direction:column;align-items:center;gap:14px">
+<svg style="width:82%;max-width:280px;height:auto" viewBox="0 0 420 420">
+<circle cx="210" cy="210" r="202" fill="#11120e"></circle>
+<circle cx="210" cy="210" r="193" fill="none" stroke="#efff49" stroke-width="10" stroke-dasharray="3.5 6.6"></circle>
+<circle cx="210" cy="210" r="181" fill="#efff49" stroke="#11120e" stroke-width="7"></circle>
+<circle cx="210" cy="210" r="146" fill="none" stroke="#11120e" stroke-width="5"></circle>
+<defs>
+<path id="cnBa" d="M 94 210 A 116 116 0 0 1 326 210" fill="none"></path>
+<path id="cnBb" d="M 94 210 A 116 116 0 0 0 326 210" fill="none"></path>
+</defs>
+<text font-size="22" letter-spacing="5" fill="#11120e" font-family="'Space Mono',monospace" font-weight="700"><textPath href="#cnBa" startOffset="50%" text-anchor="middle">WORTH NOTHING</textPath></text>
+<text font-size="22" letter-spacing="5" fill="#11120e" font-family="'Space Mono',monospace" font-weight="700"><textPath href="#cnBb" startOffset="50%" text-anchor="middle">BY DESIGN</textPath></text>
+<circle cx="210" cy="196" r="52" fill="none" stroke="#11120e" stroke-width="13"></circle>
+<path d="M 173 233 L 247 159" stroke="#11120e" stroke-width="13" stroke-linecap="round"></path>
+<text x="210" y="290" text-anchor="middle" font-family="'Space Mono',monospace" font-weight="700" font-size="15" letter-spacing="2" fill="#11120e">0X1LLM1ND3D</text>
+</svg>
+<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em">BACK</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;justify-content:center;min-width:220px">
+<p style="margin:0;font-size:15px;line-height:1.6;max-width:40ch">A coin as a business card. No utility, no promises, published founder sale schedule. The struck-zero on the reverse states the value honestly.</p>
+<div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;line-height:2">EDGE — REEDED, 60 TICKS<br>OBVERSE — MECH BRAIN<br>REVERSE — STRUCK ZERO</div>
+</div>
+</div>
+
+<div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid #a4a59c;padding-top:10px;margin:56px 0 24px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em"><b>06</b><span>MERCH</span><span style="margin-left:auto;font-size:10px;color:#6b6c63">EMBROIDERY + SCREEN PRINT</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+<div style="background:#e9eae2;border:1px solid #a4a59c;padding:28px;display:flex;flex-direction:column;align-items:center;gap:14px">
+<svg style="width:100%;max-width:330px;height:auto" viewBox="0 0 560 400">
+<path d="M 120 268 C 120 140 200 76 280 76 C 360 76 440 140 440 268 Z" fill="#11120e"></path>
+<path d="M 224 92 C 216 150 214 210 216 268" stroke="#2a2b23" stroke-width="3" fill="none"></path>
+<path d="M 336 92 C 344 150 346 210 344 268" stroke="#2a2b23" stroke-width="3" fill="none"></path>
+<g stroke="#2a2b23" stroke-width="2">
+<path d="M 138 200 L 200 262"></path><path d="M 130 232 L 168 268"></path><path d="M 156 172 L 214 230"></path>
+<path d="M 422 200 L 360 262"></path><path d="M 430 232 L 392 268"></path><path d="M 404 172 L 346 230"></path>
+</g>
+<circle cx="280" cy="78" r="9" fill="#11120e" stroke="#2a2b23" stroke-width="3"></circle>
+<path d="M 106 268 C 190 250 370 250 454 268 C 454 300 402 322 280 322 C 158 322 106 300 106 268 Z" fill="#1d1e16" stroke="#11120e" stroke-width="4"></path>
+<circle cx="280" cy="192" r="84" fill="#f7f8f2" stroke="#efff49" stroke-width="5" stroke-dasharray="3 5"></circle>
+<svg x="204" y="116" width="152" height="152" viewBox="0 0 460 460"><use href="#mk-full"></use></svg>
+</svg>
+<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em">TRUCKER HAT — ROUNDEL PATCH</span>
+</div>
+<div style="background:#e9eae2;border:1px solid #a4a59c;padding:28px;display:flex;flex-direction:column;align-items:center;gap:14px">
+<svg style="width:100%;max-width:330px;height:auto" viewBox="0 0 440 480">
+<path d="M 122 62 C 150 90 290 90 318 62 L 346 76 L 416 128 L 380 198 L 330 178 L 330 432 L 110 432 L 110 178 L 60 198 L 24 128 L 94 76 Z" fill="#11120e"></path>
+<path d="M 148 68 C 172 92 268 92 292 68" stroke="#2a2b23" stroke-width="6" fill="none"></path>
+<path d="M 110 182 L 94 80" stroke="#2a2b23" stroke-width="2" fill="none"></path>
+<path d="M 330 182 L 346 80" stroke="#2a2b23" stroke-width="2" fill="none"></path>
+<svg x="234" y="126" width="86" height="86" viewBox="0 0 340 340"><use href="#mk-icon-dark"></use></svg>
+</svg>
+<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em">HEAVYWEIGHT TEE — FRONT</span>
+</div>
+<div style="background:#e9eae2;border:1px solid #a4a59c;padding:28px;display:flex;flex-direction:column;align-items:center;gap:14px">
+<svg style="width:100%;max-width:330px;height:auto" viewBox="0 0 440 480">
+<path d="M 122 62 C 150 82 290 82 318 62 L 346 76 L 416 128 L 380 198 L 330 178 L 330 432 L 110 432 L 110 178 L 60 198 L 24 128 L 94 76 Z" fill="#11120e"></path>
+<path d="M 154 66 C 176 82 264 82 286 66" stroke="#2a2b23" stroke-width="6" fill="none"></path>
+<svg x="126" y="130" width="188" height="188" viewBox="0 0 460 460"><use href="#mk-full"></use></svg>
+<text x="220" y="358" text-anchor="middle" font-family="'Space Mono',monospace" font-weight="700" font-size="14" letter-spacing="3" fill="#f7f8f2">WORTH NOTHING</text>
+<text x="220" y="380" text-anchor="middle" font-family="'Space Mono',monospace" font-weight="700" font-size="14" letter-spacing="3" fill="#efff49">BY DESIGN</text>
+</svg>
+<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em">HEAVYWEIGHT TEE — BACK</span>
+</div>
+</div>
+
+<div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid #a4a59c;padding-top:10px;margin:56px 0 24px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em"><b>07</b><span>FAVICON + AVATAR</span><span style="margin-left:auto;font-size:10px;color:#6b6c63">24PX GLYPH DROPS FOLDS AND BOLTS</span></div>
+<div style="display:flex;gap:24px;flex-wrap:wrap;align-items:stretch">
+<div style="background:#f7f8f2;border:1px solid #a4a59c;padding:28px 36px;display:flex;align-items:flex-end;gap:36px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px"><svg width="48" height="48" viewBox="0 0 340 340"><use href="#mk-icon"></use></svg><span style="font-family:'Space Mono',monospace;font-size:10px">48</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px"><svg width="32" height="32" viewBox="0 0 340 340"><use href="#mk-icon"></use></svg><span style="font-family:'Space Mono',monospace;font-size:10px">32</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px"><svg width="24" height="24" viewBox="0 0 340 340"><use href="#mk-micro"></use></svg><span style="font-family:'Space Mono',monospace;font-size:10px">24</span></div>
+</div>
+<div style="background:#11120e;border:1px solid #11120e;padding:28px 36px;display:flex;align-items:center;gap:28px">
+<div style="width:96px;height:96px;border-radius:50%;overflow:hidden;flex:none;border:2px solid #efff49"><svg width="96" height="96" viewBox="26 26 408 408" style="display:block"><use href="#mk-full"></use></svg></div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;color:#f7f8f2">SOCIAL AVATAR — CIRCLE CROP</span>
+<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;color:#a4a59c">FULL RIVET RING, MARK CENTERED</span>
+</div>
+</div>
+</div>
+
+<div style="display:flex;align-items:baseline;gap:16px;border-top:1px solid #a4a59c;padding-top:10px;margin:56px 0 24px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em"><b>08</b><span>TOKENS</span><span style="margin-left:auto;font-size:10px;color:#6b6c63">FIXED, FROM THE LIVE SITE</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px">
+<div style="border:1px solid #a4a59c"><div style="height:72px;background:#f7f8f2;border-bottom:1px solid #a4a59c"></div><div style="padding:10px 12px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em">PAPER<br>#F7F8F2</div></div>
+<div style="border:1px solid #a4a59c"><div style="height:72px;background:#11120e"></div><div style="padding:10px 12px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em">INK<br>#11120E</div></div>
+<div style="border:1px solid #a4a59c"><div style="height:72px;background:#103be8"></div><div style="padding:10px 12px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em">ELECTRIC BLUE<br>#103BE8</div></div>
+<div style="border:1px solid #a4a59c"><div style="height:72px;background:#efff49"></div><div style="padding:10px 12px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em">ACID YELLOW<br>#EFFF49</div></div>
+<div style="border:1px solid #a4a59c"><div style="height:72px;background:#d32011"></div><div style="padding:10px 12px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em">ACCENT RED<br>#D32011</div></div>
+</div>
+<div style="margin-top:24px;display:flex;gap:40px;flex-wrap:wrap;border:1px solid #a4a59c;padding:24px 28px">
+<div><div style="font-weight:700;font-size:30px">Space Grotesk 700</div><div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;margin-top:6px">HEADLINES</div></div>
+<div><div style="font-family:'Space Mono',monospace;font-weight:700;font-size:22px;letter-spacing:.08em">SPACE MONO 700</div><div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;margin-top:6px">LABELS / SMALL CAPS / BADGE TYPE</div></div>
+</div>
+
+<div style="margin-top:64px;border-top:1px solid #a4a59c;padding-top:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;color:#6b6c63">
+<span>$ILLMINDED CARRIES NO UTILITY AND NO PROMISES. WORTH NOTHING BY DESIGN.</span>
+<span>{{ serial }} / {{ year }}</span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;bloodshot&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mark details&quot;},&quot;rivetRing&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mark details&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      veinOpacity: (this.props.bloodshot ?? true) ? 1 : 0,
+      ringOpacity: (this.props.rivetRing ?? true) ? 1 : 0,
+      serial: "N0.752936",
+      contract: "0X1LLM1ND3D",
+      year: "MMXXVI"
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 460" role="img" aria-label="Creations of the Ill Minded mech brain roundel"><defs><g id="brain-full">
+<path d="M 230 130 V 106" stroke="#11120e" stroke-width="10" stroke-linecap="round"></path>
+<circle cx="230" cy="97" r="11" fill="#d32011" stroke="#11120e" stroke-width="8"></circle>
+<g fill="#11120e">
+<rect x="106" y="262" width="42" height="16" rx="3"></rect><circle cx="104" cy="270" r="12"></circle>
+<rect x="312" y="262" width="42" height="16" rx="3"></rect><circle cx="356" cy="270" r="12"></circle>
+</g>
+<path d="M 98 264 L 110 276" stroke="#f7f8f2" stroke-width="3" stroke-linecap="round"></path>
+<path d="M 350 264 L 362 276" stroke="#f7f8f2" stroke-width="3" stroke-linecap="round"></path>
+<g stroke="#11120e" stroke-width="11" stroke-linejoin="round">
+<path fill="#efff49" d="M 156 262 C 142 234 150 206 172 190 C 172 164 194 146 222 150 C 228 132 254 128 260 146 C 288 140 312 158 312 184 C 332 200 336 230 322 258 C 328 280 314 296 292 298 L 184 298 C 162 296 148 280 156 262 Z"></path>
+<g fill="none" stroke-width="8" stroke-linecap="round">
+<path d="M 182 200 C 196 176 218 165 240 168"></path>
+<path d="M 308 202 C 296 178 274 166 252 169"></path>
+</g>
+<path fill="#103be8" d="M 142 210 C 194 185 266 185 318 210 L 313 240 C 263 217 197 217 147 240 Z"></path>
+</g>
+<path id="band3" d="M 152 235 A 162 162 0 0 1 308 235" fill="none"></path>
+<circle cx="162" cy="224" r="4" fill="#f7f8f2"></circle>
+<circle cx="298" cy="224" r="4" fill="#f7f8f2"></circle>
+<text font-family="'Space Mono',monospace" font-weight="700" font-size="15" letter-spacing="2.4" fill="#f7f8f2"><textPath href="#band3" startOffset="50%" text-anchor="middle">0X1LLM1ND3D</textPath></text>
+<circle cx="196" cy="266" r="24" fill="#ffffff" stroke="#11120e" stroke-width="10"></circle>
+<circle cx="272" cy="266" r="24" fill="#ffffff" stroke="#11120e" stroke-width="10"></circle>
+<g stroke="#d32011" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="1">
+<path d="M 181 272 C 186 271 189 269 191 266"></path>
+<path d="M 287 272 C 282 271 279 269 277 266"></path>
+</g>
+<circle cx="202" cy="266" r="10" fill="#11120e"></circle>
+<circle cx="266" cy="266" r="10" fill="#11120e"></circle>
+</g></defs>
+<path id="mkArcFL" d="M 107.5 249.4 A 124 124 0 0 1 197.9 110.2" fill="none"></path>
+<path id="mkArcFR" d="M 262.1 110.2 A 124 124 0 0 1 352.5 249.4" fill="none"></path>
+<circle cx="230" cy="230" r="218" fill="#11120e"></circle>
+<circle cx="230" cy="230" r="200" fill="#f7f8f2" stroke="#efff49" stroke-width="7"></circle>
+<circle cx="230" cy="230" r="162" fill="none" stroke="#11120e" stroke-width="6"></circle>
+<g fill="#11120e" opacity="1">
+<circle cx="230" cy="48" r="7"></circle><circle cx="230" cy="412" r="7"></circle>
+<circle cx="48" cy="230" r="7"></circle><circle cx="412" cy="230" r="7"></circle>
+<circle cx="101" cy="101" r="7"></circle><circle cx="359" cy="101" r="7"></circle>
+<circle cx="101" cy="359" r="7"></circle><circle cx="359" cy="359" r="7"></circle>
+</g>
+<use href="#brain-full"></use>
+<text font-size="26" letter-spacing="3" fill="#11120e" font-family="'Space Mono',monospace" font-weight="700">
+<textPath href="#mkArcFL" startOffset="50%" text-anchor="middle">CREATIONS</textPath>
+</text>
+<text font-size="26" letter-spacing="7" fill="#11120e" font-family="'Space Mono',monospace" font-weight="700">
+<textPath href="#mkArcFR" startOffset="50%" text-anchor="middle">OF THE</textPath>
+</text>
+<g stroke="#11120e" stroke-width="9" stroke-linejoin="round">
+<path fill="#103be8" d="M 90 322 L 122 306 L 122 356 L 90 340 L 100 331 Z"></path>
+<path fill="#103be8" d="M 370 322 L 338 306 L 338 356 L 370 340 L 360 331 Z"></path>
+<rect x="116" y="304" width="228" height="52" fill="#103be8"></rect>
+</g>
+<text x="230" y="340" text-anchor="middle" font-family="'Space Mono',monospace" font-weight="700" font-size="25" letter-spacing="4" fill="#f7f8f2">ILL MINDED</text>
+</svg>

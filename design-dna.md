@@ -32,10 +32,12 @@ An open holding company that builds in public, presented as a **publication**: a
 
 ## Type
 
-**ABC Arizona, Dinamo.** A variable family that moves from sans to serif ("Flare" in between): one family, many voices, which suits a holding company of very different companies. Use Arizona Sans for running text, Arizona Flare for headlines, Arizona Serif for dispatches from the founder. For the small labels, use Arizona Sans at text size in sentence case instead of a mono.
+**Primary: Ill Minded Flare for headlines + Ill Minded Sans for text and labels (brand type library, SIL OFL).** These are brand-owned fonts made on 2026-11-02 to carry the traits of the paid target below: one voice that moves from a flared, glyphic headline face to a plain sans for running text, with the brand's own commas and quotes. Small labels use Ill Minded Sans at text size in sentence case, not a mono.
 
-- Licence: Dinamo prices by company size and licence type; select "<3" people, desktop + web, at abcdinamo.com/buy/arizona for the quote. **Not priced in this audit; get the quote and the owner's approval before buying.**
-- Until approved: system sans for text, `Georgia` for headlines. Not Space Grotesk, Space Mono, or another Google pairing.
+- Files: `type-library/ill-minded/` in the workspace (`C:\Users\Cyrus\Documents\Claude Code Projects\type-library\ill-minded`): TTF + WOFF2 in `fonts/`, `OFL.txt`, a README listing every change from the open-source base, and `specimen.html`. To use them on a site, copy the WOFF2 files and `OFL.txt` into the project. The SIL OFL allows embedding and bundling, but never selling the fonts on their own. They are also installed for the current Windows user, so design tools can use them.
+- CSS: `font-family: 'Ill Minded Flare', Georgia, serif;` for headlines and founder dispatches, and `font-family: 'Ill Minded Sans', system-ui, sans-serif;` for text. Not Space Grotesk, Space Mono, or another Google pairing.
+
+**Optional paid upgrade: ABC Arizona, Dinamo.** Dinamo publishes no fixed price: select company size "<3" and desktop + web at abcdinamo.com/buy/arizona for a quote. Buying needs the owner's approval; until then the library fonts are the default.
 
 ## Palette (from the print-study cover; keep it)
 
